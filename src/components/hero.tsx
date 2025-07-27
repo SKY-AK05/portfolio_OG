@@ -22,7 +22,7 @@ const Hero = () => {
         </div>
 
         {/* Center Column (Image) */}
-        <div className="md:col-span-4 relative flex justify-center items-center h-[450px]">
+        <div className="md:col-span-4 relative flex justify-center items-center h-[600px]">
           <div className="absolute inset-0 flex justify-center items-center">
             <svg
               className="w-full h-full text-teal-500"
@@ -45,7 +45,7 @@ const Hero = () => {
           <img
             src="/svgs/me.svg"
             alt="Aakash - a placeholder image"
-            className="relative z-10 w-[300px] h-[450px] object-contain"
+            className="relative z-10 w-[400px] h-[600px] object-contain"
           />
         </div>
 
