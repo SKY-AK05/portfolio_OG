@@ -4,7 +4,7 @@ import { Phone } from "lucide-react"
 
 const Header = () => {
   return (
-    <header className="py-8">
+    <header className="py-4">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           <div className="text-2xl font-bold font-heading">
