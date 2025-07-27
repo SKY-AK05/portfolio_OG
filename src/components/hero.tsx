@@ -55,15 +55,6 @@ const Hero = () => {
             I build beautifully simple things, <br/>
             And I love what I do.
           </p>
-          <div className="flex justify-end">
-            <div className="text-center">
-               <div className="w-24 h-24 border-2 border-dashed border-foreground/50 rounded-full flex items-center justify-center mx-auto mb-2">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-               </div>
-              <p className="font-body text-xs font-semibold">CERTIFIED</p>
-              <p className="font-body text-xs text-muted-foreground">PROFESSIONAL DEVELOPER</p>
-            </div>
-          </div>
         </div>
 
       </div>
