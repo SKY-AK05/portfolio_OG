@@ -43,9 +43,8 @@ const Hero = () => {
             </svg>
           </div>
           <img
-            src="https://placehold.co/300x450.png"
+            src="/svgs/me.svg"
             alt="Aakash - a placeholder image"
-            data-ai-hint="person illustration"
             className="relative z-10 w-[300px] h-[450px] object-contain"
           />
         </div>
