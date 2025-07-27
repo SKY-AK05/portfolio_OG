@@ -28,7 +28,7 @@ export default function Home() {
   }, [])
 
   return (
-      <div ref={containerRef} className="min-h-screen bg-background overflow-x-hidden flex flex-col">
+      <div ref={containerRef} className="min-h-screen bg-background flex flex-col">
         <AccessibilityControls />
         <Header />
 
