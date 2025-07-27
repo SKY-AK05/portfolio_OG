@@ -50,7 +50,7 @@ const Hero = () => {
         </div>
 
         {/* Right Column */}
-        <div className="md:col-span-4 space-y-8 text-right self-start pt-24">
+        <div className="md:col-span-4 space-y-8 text-right self-start pt-16">
            <p className="font-body text-lg">
             I build beautifully simple things, <br/>
             And I love what I do.
