@@ -43,11 +43,11 @@ const Hero = () => {
             </svg>
           </div>
           <div className="relative z-10 w-[300px] h-[450px]">
-            <Image
+            <img
               src="/svg/me.svg"
               alt="Aakash - a placeholder image"
-              width={300}
-              height={450}
+              width="300"
+              height="450"
               className="rounded-lg object-contain"
             />
           </div>
