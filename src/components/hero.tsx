@@ -50,7 +50,7 @@ const Hero = () => {
         </div>
 
         {/* Right Column */}
-        <div className="md:col-span-4 space-y-8 self-start">
+        <div className="md:col-span-4 space-y-8">
            <p className="font-body text-lg">
             Developer and systems thinker building AI tools, simplifying workflows, mentoring minds, and solving real-world problems with clarity, logic, and purpose.
           </p>
