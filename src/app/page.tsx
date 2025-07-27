@@ -35,7 +35,7 @@ export default function Home() {
 
         <main className="flex-grow">
           {/* Hero Section */}
-          <section id="hero" className="flex items-center justify-center relative min-h-screen">
+          <section id="hero" className="flex items-center justify-center relative py-20">
             <Hero />
           </section>
 
