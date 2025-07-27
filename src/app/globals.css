@@ -2,35 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --champagne-beige: #f7e7ce;
+  --muted-lavender: #c5b4e3;
+  --cream-white: #fffdf8;
+  --charcoal: #2e2e2e;
+  --accent-teal: #008080;
+  --accent-coral: #ff6f61;
+}
+
 @layer base {
   :root {
-    --background: 40 100% 98%; /* Light Cream */
-    --foreground: 240 10% 3.9%; /* Near Black */
+    --background: 46 65% 96%; /* cream white */
+    --foreground: 0 0% 18%; /* charcoal */
 
-    --card: 43 67% 90%; /* Light Peach */
-    --card-foreground: 240 10% 3.9%;
+    --card: 46 65% 96%;
+    --card-foreground: 0 0% 18%;
 
-    --popover: 40 100% 98%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover: 46 65% 96%;
+    --popover-foreground: 0 0% 18%;
 
-    --primary: 25 95% 75%; /* Peach */
-    --primary-foreground: 240 10% 3.9%;
+    --primary: 270 53% 80%; /* muted lavender */
+    --primary-foreground: 0 0% 18%;
 
-    --secondary: 210 40% 96.1%; /* Light Blue Muted */
-    --secondary-foreground: 240 10% 3.9%;
+    --secondary: 40 100% 90%; /* champagne beige */
+    --secondary-foreground: 0 0% 18%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 240 5.9% 10%;
+    --muted: 270 53% 80%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 0 84.2% 60.2%; /* Red for slider */
-    --accent-foreground: 0 0% 98%;
+    --accent: 180 100% 25%; /* teal */
+    --accent-foreground: 46 65% 96%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 4 90% 58%; /* coral */
+    --destructive-foreground: 46 65% 96%;
 
-    --border: 240 10% 3.9%;
-    --input: 210 40% 92%; /* Light Blue */
-    --ring: 240 10% 3.9%;
+    --border: 0 0% 18%;
+    --input: 40 100% 90%;
+    --ring: 270 53% 80%;
     
     --radius: 0.5rem;
   }
@@ -40,7 +49,124 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Caveat', cursive;
+  }
+}
+
+@layer utilities {
+  .font-caveat {
+    font-family: 'Caveat', cursive;
+  }
+
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Accessibility Classes */
+.reduce-motion * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+.high-contrast {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+  --primary: 0 0% 0%;
+  --secondary: 0 0% 100%;
+  --accent: 0 0% 0%;
+  --border: 0 0% 0%;
+}
+
+.high-contrast * {
+  border-color: #000000 !important;
+}
+
+.dyslexia-font * {
+  font-family: "OpenDyslexic", "Inter", sans-serif !important;
+}
+
+.focus-mode .project-bubble:not(:hover),
+.focus-mode .thought-card:not(:hover),
+.focus-mode .web-item:not(:hover) {
+  opacity: 0.3;
+  filter: blur(1px);
+}
+
+/* Custom animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom cursor for interactive elements */
+.cursor-sketch {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z' fill='%23C5B4E3'/%3E%3C/svg%3E")
+    12 12, auto;
+}
+
+/* Sketch-style borders */
+.border-sketch {
+  border-image: url("data:image/svg+xml,%3csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M10,10 Q50,5 90,10 Q95,50 90,90 Q50,95 10,90 Q5,50 10,10' stroke='%23C5B4E3' stroke-width='2' fill='none'/%3e%3c/svg%3e")
+    10;
+}
+
+/* Responsive design helpers */
+@media (max-width: 768px) {
+  .thought-card {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    margin-bottom: 1rem;
+  }
+
+  .web-item {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .accessibility-controls,
+  .social-icon,
+  button {
+    display: none !important;
+  }
+
+  * {
+    color: black !important;
+    background: white !important;
   }
 }
