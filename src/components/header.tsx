@@ -4,12 +4,18 @@ import { Phone } from "lucide-react"
 
 const Header = () => {
   return (
-    <header className="py-8">
+    <header className="py-8 fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           <div className="text-2xl font-bold font-heading">
             Aakash
           </div>
+          <nav className="hidden md:flex items-center space-x-8">
+            <a href="#who-i-am" className="font-body text-sm text-foreground/80 hover:text-foreground transition-colors">Who I Am</a>
+            <a href="#projects" className="font-body text-sm text-foreground/80 hover:text-foreground transition-colors">Projects</a>
+            <a href="#mission" className="font-body text-sm text-foreground/80 hover:text-foreground transition-colors">Mission</a>
+            <a href="#contact" className="font-body text-sm text-foreground/80 hover:text-foreground transition-colors">Contact</a>
+          </nav>
           <div className="hidden md:flex items-center space-x-2">
             <a href="tel:+001313345678" className="font-body text-sm flex items-center gap-2 text-foreground/80 hover:text-foreground transition-colors">
                 <span>+001 (313) 345 678</span>
