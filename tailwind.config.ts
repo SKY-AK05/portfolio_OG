@@ -18,6 +18,10 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        heading: ['Inter', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -52,10 +56,6 @@ const config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
-      },
-      fontFamily: {
-        caveat: ['Caveat', 'cursive'],
-        inter: ['Inter', 'sans-serif'],
       },
       borderRadius: {
         lg: 'var(--radius)',

@@ -99,7 +99,7 @@ const WhoIAm = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="font-caveat text-6xl font-bold text-foreground mb-6">Who I Am</h2>
+          <h2 className="font-heading text-6xl font-bold text-foreground mb-6">Who I Am</h2>
           <div className="w-32 h-1 bg-primary mx-auto rounded-full" />
         </div>
 
@@ -107,30 +107,17 @@ const WhoIAm = () => {
           {/* Avatar and Description */}
           <div className="space-y-8">
             <div className="relative">
-              {/* Sketch-style avatar placeholder */}
-              <div className="w-64 h-64 mx-auto bg-secondary border-4 border-foreground rounded-full relative overflow-hidden">
-                <div className="absolute inset-4 bg-primary rounded-full flex items-center justify-center">
-                  <span className="text-6xl">👨‍💻</span>
-                </div>
-                {/* Floating items around avatar */}
-                <div className="absolute -top-4 -right-4 w-12 h-12 bg-background border-2 border-foreground rounded-full flex items-center justify-center">
-                  <span className="text-xl">☕</span>
-                </div>
-                <div className="absolute -bottom-2 -left-6 w-10 h-10 bg-background border-2 border-foreground rounded-full flex items-center justify-center">
-                  <span className="text-lg">🎧</span>
-                </div>
-                <div className="absolute top-1/2 -right-8 w-8 h-8 bg-background border-2 border-foreground rounded-full flex items-center justify-center">
-                  <span className="text-sm">{"</>"}</span>
-                </div>
+              <div className="w-64 h-64 mx-auto bg-secondary border-2 border-foreground rounded-full flex items-center justify-center shadow-lg">
+                <span className="text-8xl">👨‍💻</span>
               </div>
             </div>
 
             <div className="text-center space-y-4">
-              <p className="font-inter text-xl text-foreground leading-relaxed">
+              <p className="font-body text-xl text-foreground leading-relaxed">
                 I'm a developer who thinks in systems and feels in code. My brain works differently, and I've learned
                 that's not a bug—it's a feature that helps me build tools that actually make sense for people like me.
               </p>
-              <p className="font-inter text-lg text-muted-foreground leading-relaxed">
+              <p className="font-body text-lg text-muted-foreground leading-relaxed">
                 When I'm not coding, I'm probably reorganizing my task management system for the hundredth time or
                 helping someone else navigate the beautiful chaos of neurodivergent productivity.
               </p>
@@ -138,13 +125,10 @@ const WhoIAm = () => {
 
             {/* Trait Tags */}
             <div ref={tagsRef} className="flex flex-wrap gap-3 justify-center">
-              {traits.map((trait, index) => (
+              {traits.map((trait) => (
                 <span
                   key={trait}
-                  className="trait-tag bg-primary text-primary-foreground px-4 py-2 rounded-full border-2 border-foreground font-inter text-sm hover:bg-secondary transition-colors duration-300 cursor-default"
-                  style={{
-                    transform: `rotate(${(index % 2 === 0 ? 1 : -1) * (Math.random() * 3 + 1)}deg)`,
-                  }}
+                  className="trait-tag bg-muted text-foreground px-4 py-2 rounded-full border border-foreground/20 font-body text-sm hover:bg-primary/20 transition-colors duration-300 cursor-default"
                 >
                   {trait}
                 </span>
@@ -154,22 +138,22 @@ const WhoIAm = () => {
 
           {/* Timeline */}
           <div ref={timelineRef} className="space-y-8">
-            <h3 className="font-caveat text-3xl font-bold text-foreground text-center mb-8">My Journey</h3>
+            <h3 className="font-heading text-3xl font-bold text-foreground text-center mb-8">My Journey</h3>
             <div className="relative">
               {/* Timeline line */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary" />
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/30" />
 
-              {timelineEvents.map((event, index) => (
+              {timelineEvents.map((event) => (
                 <div key={event.year} className="timeline-item relative flex items-start space-x-6 pb-8">
                   {/* Timeline dot */}
-                  <div className="w-16 h-16 bg-secondary border-4 border-foreground rounded-full flex items-center justify-center z-10">
+                  <div className="w-16 h-16 bg-secondary border-2 border-foreground rounded-full flex items-center justify-center z-10 flex-shrink-0">
                     <span className="text-2xl">{event.icon}</span>
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 bg-background border-2 border-foreground rounded-lg p-6 shadow-lg">
-                    <div className="font-caveat text-2xl font-bold text-primary mb-2">{event.year}</div>
-                    <p className="font-inter text-lg text-foreground leading-relaxed">{event.event}</p>
+                  <div className="flex-1 bg-background border-2 border-foreground/20 rounded-lg p-6 shadow-md">
+                    <div className="font-heading text-2xl font-bold text-primary mb-2">{event.year}</div>
+                    <p className="font-body text-lg text-foreground leading-relaxed">{event.event}</p>
                   </div>
                 </div>
               ))}

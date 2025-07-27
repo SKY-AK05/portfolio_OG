@@ -143,14 +143,14 @@ const HowIThink = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="font-caveat text-6xl font-bold text-foreground mb-6">How I Think</h2>
-          <p className="font-inter text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+          <h2 className="font-heading text-6xl font-bold text-foreground mb-6">How I Think</h2>
+          <p className="font-body text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
             My mind works like a sketchpad—nonlinear, interconnected, always looking for patterns. Drag the cards around
             to explore my mental framework.
           </p>
           <Button
             onClick={shuffleCards}
-            className="bg-primary hover:bg-primary/80 text-primary-foreground border-2 border-foreground font-inter"
+            className="bg-primary hover:bg-primary/80 text-primary-foreground border-2 border-foreground font-body"
           >
             <Shuffle className="w-4 h-4 mr-2" />
             Shuffle Thoughts
@@ -161,10 +161,9 @@ const HowIThink = () => {
         {/* Draggable Thought Board */}
         <div
           ref={boardRef}
-          className="relative h-96 bg-background border-4 border-foreground rounded-3xl p-8 mb-16 overflow-hidden"
+          className="relative h-96 bg-background border-2 border-foreground/20 rounded-3xl p-8 mb-16 overflow-hidden"
           style={{
-            borderStyle: "dashed",
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C5B4E3' fillOpacity='0.1'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fillOpacity='0.02'%3E%3Ccircle cx='3' cy='3' r='1'/%3E%3C/g%3E%3C/svg%3E")`,
             backgroundSize: "20px 20px",
           }}
         >
@@ -175,18 +174,18 @@ const HowIThink = () => {
               style={{
                 left: `${20 + (index % 2) * 300}px`,
                 top: `${20 + Math.floor(index / 2) * 180}px`,
-                transform: `rotate(${(index % 2 === 0 ? 1 : -1) * (Math.random() * 3 + 1)}deg)`,
-                filter: "drop-shadow(2px 2px 4px rgba(0,0,0,0.1))",
+                transform: `rotate(${(index % 2 === 0 ? 1 : -1) * (Math.random() * 1.5 + 0.5)}deg)`,
+                boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
               }}
               onClick={() => setSelectedCard(selectedCard === card.id ? null : card.id)}
             >
               <div className="text-center mb-4">
                 <div className="text-4xl mb-2 group-hover:animate-bounce">{card.sketch}</div>
-                <h3 className="font-caveat text-xl font-bold text-foreground">{card.title}</h3>
+                <h3 className="font-heading text-xl font-bold text-foreground">{card.title}</h3>
               </div>
-              <p className="font-inter text-sm text-foreground leading-relaxed">{card.insight}</p>
+              <p className="font-body text-sm text-foreground leading-relaxed">{card.insight}</p>
               <div className="mt-4 text-center">
-                <span className="font-inter text-xs text-muted-foreground">Click to expand</span>
+                <span className="font-body text-xs text-muted-foreground">Click to expand</span>
               </div>
             </div>
           ))}
@@ -196,17 +195,17 @@ const HowIThink = () => {
         {selectedCard && (
           <Card className="border-2 border-foreground bg-background shadow-lg">
             <CardHeader>
-              <CardTitle className="font-caveat text-3xl text-foreground flex items-center gap-4">
+              <CardTitle className="font-heading text-3xl text-foreground flex items-center gap-4">
                 <span className="text-4xl">{thoughtCards.find((c) => c.id === selectedCard)?.sketch}</span>
                 {thoughtCards.find((c) => c.id === selectedCard)?.title}
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="font-inter text-lg text-foreground leading-relaxed mb-4">
+              <p className="font-body text-lg text-foreground leading-relaxed mb-4">
                 {thoughtCards.find((c) => c.id === selectedCard)?.insight}
               </p>
               <div className="border-t-2 border-primary pt-4">
-                <p className="font-inter text-base text-muted-foreground leading-relaxed">
+                <p className="font-body text-base text-muted-foreground leading-relaxed">
                   {thoughtCards.find((c) => c.id === selectedCard)?.details}
                 </p>
               </div>
@@ -216,9 +215,9 @@ const HowIThink = () => {
 
         {/* Philosophy Summary */}
         <div className="mt-16 text-center">
-          <div className="bg-primary border-2 border-foreground rounded-3xl p-8 max-w-3xl mx-auto">
-            <h3 className="font-caveat text-3xl font-bold text-primary-foreground mb-4">The Core Philosophy</h3>
-            <p className="font-inter text-lg text-primary-foreground leading-relaxed">
+          <div className="bg-muted border-2 border-foreground rounded-3xl p-8 max-w-3xl mx-auto">
+            <h3 className="font-heading text-3xl font-bold text-foreground mb-4">The Core Philosophy</h3>
+            <p className="font-body text-lg text-foreground leading-relaxed">
               Every decision I make—from code architecture to color choices—stems from a simple belief: technology
               should amplify human potential, not drain it. When we design with neurodivergent minds in mind, we create
               better experiences for everyone.

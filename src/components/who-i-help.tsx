@@ -9,7 +9,7 @@ const WhoIHelp = () => {
   const sectionRef = useRef<HTMLDivElement>(null)
   const webRef = useRef<HTMLDivElement>(null)
   const testimonialsRef = useRef<HTMLDivElement>(null)
-    const [isClient, setIsClient] = useState(false)
+  const [isClient, setIsClient] = useState(false)
   
   useEffect(() => {
     setIsClient(true)
@@ -21,7 +21,7 @@ const WhoIHelp = () => {
       title: "Neurodivergent Developers",
       description: "Finding their rhythm in a neurotypical tech world",
       icon: "🧠",
-      color: "bg-primary",
+      color: "bg-primary/20",
       position: { x: -200, y: -100 },
     },
     {
@@ -45,7 +45,7 @@ const WhoIHelp = () => {
       title: "Quiet Leaders",
       description: "Leading with empathy in loud, fast-moving environments",
       icon: "🤫",
-      color: "bg-primary",
+      color: "bg-primary/20",
       position: { x: 180, y: 140 },
     },
   ]
@@ -178,8 +178,8 @@ const WhoIHelp = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="font-caveat text-6xl font-bold text-foreground mb-6">Who I Help</h2>
-          <p className="font-inter text-xl text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="font-heading text-6xl font-bold text-foreground mb-6">Who I Help</h2>
+          <p className="font-body text-xl text-muted-foreground max-w-2xl mx-auto">
             My work centers around people who think differently, feel deeply, and need technology that actually
             understands them.
           </p>
@@ -190,10 +190,10 @@ const WhoIHelp = () => {
         <div ref={webRef} className="relative h-96 mb-20">
           {/* Central hub */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-            <div className="bg-foreground text-background rounded-full w-32 h-32 flex items-center justify-center border-4 border-foreground">
+            <div className="bg-foreground text-background rounded-full w-32 h-32 flex items-center justify-center border-4 border-foreground shadow-lg">
               <div className="text-center">
                 <div className="text-2xl mb-1">🤝</div>
-                <div className="font-inter text-sm font-semibold">
+                <div className="font-body text-sm font-semibold">
                   Empathy
                   <br />
                   First
@@ -214,10 +214,10 @@ const WhoIHelp = () => {
                   window.innerWidth / 2 + category.position.x
                 } ${192 + category.position.y}`}
                 fill="none"
-                stroke="hsl(var(--primary))"
-                strokeWidth="2"
+                stroke="hsl(var(--foreground))"
+                strokeWidth="1.5"
                 strokeDasharray="3,3"
-                opacity="0.6"
+                opacity="0.2"
               />
             ))}
           </svg>
@@ -226,17 +226,16 @@ const WhoIHelp = () => {
           {helpCategories.map((category) => (
             <div
               key={category.id}
-              className={`web-item absolute ${category.color} border-2 border-foreground rounded-2xl p-6 max-w-xs cursor-pointer hover:scale-105 transition-transform duration-300 group`}
+              className={`web-item absolute ${category.color} border-2 border-foreground rounded-2xl p-6 max-w-xs cursor-pointer hover:scale-105 transition-transform duration-300 group shadow-md`}
               style={{
                 left: `calc(50% + ${category.position.x}px)`,
                 top: `calc(50% + ${category.position.y}px)`,
                 transform: "translate(-50%, -50%)",
-                filter: "drop-shadow(2px 2px 4px rgba(0,0,0,0.1))",
               }}
             >
               <div className="text-3xl mb-3 group-hover:animate-bounce">{category.icon}</div>
-              <h3 className="font-caveat text-xl font-bold text-foreground mb-2">{category.title}</h3>
-              <p className="font-inter text-sm text-muted-foreground leading-relaxed">{category.description}</p>
+              <h3 className="font-heading text-xl font-bold text-foreground mb-2">{category.title}</h3>
+              <p className="font-body text-sm text-muted-foreground leading-relaxed">{category.description}</p>
             </div>
           ))}
         </div>
@@ -247,7 +246,7 @@ const WhoIHelp = () => {
             {["silent struggles", "non-performative help", "emotional clarity", "sustainable growth"].map((keyword) => (
               <span
                 key={keyword}
-                className="bg-primary text-primary-foreground px-4 py-2 rounded-full border-2 border-foreground font-inter text-sm italic"
+                className="bg-muted text-foreground px-4 py-2 rounded-full border border-foreground/20 font-body text-sm italic"
               >
                 {keyword}
               </span>
@@ -260,16 +259,16 @@ const WhoIHelp = () => {
           {testimonials.map((testimonial, index) => (
             <Card
               key={index}
-              className="testimonial-card border-2 border-foreground bg-background hover:bg-secondary transition-colors duration-300"
+              className="testimonial-card border-2 border-foreground/20 bg-background hover:bg-secondary transition-colors duration-300"
             >
               <CardContent className="p-6">
-                <div className="text-4xl mb-4 opacity-50">"</div>
-                <p className="font-inter text-base text-foreground leading-relaxed mb-4 italic">
+                <div className="text-4xl mb-4 opacity-30">"</div>
+                <p className="font-body text-base text-foreground leading-relaxed mb-4 italic">
                   {testimonial.quote}
                 </p>
-                <div className="border-t-2 border-primary pt-4">
-                  <p className="font-caveat text-lg font-bold text-foreground">{testimonial.author}</p>
-                  <p className="font-inter text-sm text-muted-foreground">{testimonial.role}</p>
+                <div className="border-t-2 border-primary/50 pt-4">
+                  <p className="font-heading text-lg font-bold text-foreground">{testimonial.author}</p>
+                  <p className="font-body text-sm text-muted-foreground">{testimonial.role}</p>
                 </div>
               </CardContent>
             </Card>

@@ -81,19 +81,19 @@ const AccessibilityControls = () => {
       {isOpen && (
         <Card className="absolute top-14 right-0 w-80 border-2 border-foreground bg-background shadow-xl">
           <CardContent className="p-6">
-            <h3 className="font-caveat text-xl font-bold text-foreground mb-4">Accessibility Options</h3>
+            <h3 className="font-heading text-xl font-bold text-foreground mb-4">Accessibility Options</h3>
 
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                   <Zap className="w-4 h-4 text-foreground" />
-                  <span className="font-inter text-foreground">Reduce Motion</span>
+                  <span className="font-body text-foreground">Reduce Motion</span>
                 </div>
                 <Button
                   variant={settings.reducedMotion ? "default" : "outline"}
                   size="sm"
                   onClick={() => toggleSetting("reducedMotion")}
-                  className="font-inter"
+                  className="font-body"
                 >
                   {settings.reducedMotion ? "On" : "Off"}
                 </Button>
@@ -102,13 +102,13 @@ const AccessibilityControls = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                   <Eye className="w-4 h-4 text-foreground" />
-                  <span className="font-inter text-foreground">High Contrast</span>
+                  <span className="font-body text-foreground">High Contrast</span>
                 </div>
                 <Button
                   variant={settings.highContrast ? "default" : "outline"}
                   size="sm"
                   onClick={() => toggleSetting("highContrast")}
-                  className="font-inter"
+                  className="font-body"
                 >
                   {settings.highContrast ? "On" : "Off"}
                 </Button>
@@ -117,13 +117,13 @@ const AccessibilityControls = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                   <Type className="w-4 h-4 text-foreground" />
-                  <span className="font-inter text-foreground">Dyslexia Font</span>
+                  <span className="font-body text-foreground">Dyslexia Font</span>
                 </div>
                 <Button
                   variant={settings.dyslexiaFont ? "default" : "outline"}
                   size="sm"
                   onClick={() => toggleSetting("dyslexiaFont")}
-                  className="font-inter"
+                  className="font-body"
                 >
                   {settings.dyslexiaFont ? "On" : "Off"}
                 </Button>
@@ -132,20 +132,20 @@ const AccessibilityControls = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                   <Palette className="w-4 h-4 text-foreground" />
-                  <span className="font-inter text-foreground">Focus Mode</span>
+                  <span className="font-body text-foreground">Focus Mode</span>
                 </div>
                 <Button
                   variant={settings.focusMode ? "default" : "outline"}
                   size="sm"
                   onClick={() => toggleSetting("focusMode")}
-                  className="font-inter"
+                  className="font-body"
                 >
                   {settings.focusMode ? "On" : "Off"}
                 </Button>
               </div>
             </div>
 
-            <p className="font-inter text-xs text-muted-foreground mt-4">
+            <p className="font-body text-xs text-muted-foreground mt-4">
               These settings are saved locally and will persist across visits.
             </p>
           </CardContent>

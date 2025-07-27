@@ -20,7 +20,7 @@ const Projects = () => {
       fullDescription:
         "A structured approach to AI prompting that breaks down complex requests into manageable, reusable components. Perfect for neurodivergent minds that need clear frameworks.",
       tech: ["React", "TypeScript", "AI SDK"],
-      color: "bg-primary",
+      color: "bg-muted",
       icon: "🧵",
       github: "#",
       demo: "#",
@@ -78,7 +78,7 @@ const Projects = () => {
       if (projectBubbles) {
         gsap.fromTo(
           projectBubbles,
-          { scale: 0, rotation: -10 },
+          { scale: 0, rotation: -3 },
           {
             scale: 1,
             rotation: 0,
@@ -112,8 +112,8 @@ const Projects = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="font-caveat text-6xl font-bold text-foreground mb-6">Projects</h2>
-          <p className="font-inter text-xl text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="font-heading text-6xl font-bold text-foreground mb-6">Projects</h2>
+          <p className="font-body text-xl text-muted-foreground max-w-2xl mx-auto">
             Each project is a thought bubble that grew into something real. Click to explore the stories behind the
             code.
           </p>
@@ -122,31 +122,20 @@ const Projects = () => {
 
         {/* Projects Grid */}
         <div ref={projectsGridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <div
               key={project.id}
-              className={`project-bubble ${project.color} border-2 border-foreground rounded-3xl p-8 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg relative overflow-hidden`}
+              className={`project-bubble ${project.color} border-2 border-foreground rounded-3xl p-8 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl relative overflow-hidden`}
               onClick={() => handleProjectClick(project.id)}
-              style={{
-                borderStyle: "dashed",
-                transform: `rotate(${(index % 2 === 0 ? 1 : -1) * (Math.random() * 2 + 1)}deg)`,
-                filter: "drop-shadow(3px 3px 6px rgba(0,0,0,0.1))",
-              }}
             >
-              {/* Floating icon */}
               <div className="text-4xl mb-4 animate-bounce">{project.icon}</div>
-
-              <h3 className="font-caveat text-2xl font-bold text-foreground mb-2">{project.title}</h3>
-
-              <p className="font-inter text-sm text-muted-foreground mb-4">{project.subtitle}</p>
-
-              <p className="font-inter text-base text-foreground leading-relaxed italic">
+              <h3 className="font-heading text-2xl font-bold text-foreground mb-2">{project.title}</h3>
+              <p className="font-body text-sm text-muted-foreground mb-4">{project.subtitle}</p>
+              <p className="font-body text-base text-foreground leading-relaxed italic">
                 "{project.description}"
               </p>
-
-              {/* Hover indicator */}
               <div className="absolute bottom-4 right-4 opacity-50">
-                <span className="text-sm font-inter">Click to expand</span>
+                <span className="text-sm font-body">Click to expand</span>
               </div>
             </div>
           ))}
@@ -158,10 +147,10 @@ const Projects = () => {
             <CardHeader>
               <div className="flex items-center justify-between">
                 <div>
-                  <CardTitle className="font-caveat text-3xl text-foreground">
+                  <CardTitle className="font-heading text-3xl text-foreground">
                     {projects.find((p) => p.id === selectedProject)?.title}
                   </CardTitle>
-                  <CardDescription className="font-inter text-lg text-muted-foreground">
+                  <CardDescription className="font-body text-lg text-muted-foreground">
                     {projects.find((p) => p.id === selectedProject)?.subtitle}
                   </CardDescription>
                 </div>
@@ -169,7 +158,7 @@ const Projects = () => {
               </div>
             </CardHeader>
             <CardContent className="space-y-6">
-              <p className="font-inter text-lg text-foreground leading-relaxed">
+              <p className="font-body text-lg text-foreground leading-relaxed">
                 {projects.find((p) => p.id === selectedProject)?.fullDescription}
               </p>
 
@@ -179,7 +168,7 @@ const Projects = () => {
                   ?.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="bg-primary text-primary-foreground px-3 py-1 rounded-full border-2 border-foreground font-inter text-sm"
+                      className="bg-primary/80 text-primary-foreground px-3 py-1 rounded-full border-2 border-foreground font-body text-sm"
                     >
                       {tech}
                     </span>
@@ -189,7 +178,7 @@ const Projects = () => {
               <div className="flex gap-4">
                 <Button
                   variant="outline"
-                  className="border-2 border-foreground hover:bg-primary font-inter bg-transparent"
+                  className="border-2 border-foreground hover:bg-primary font-body bg-transparent"
                   asChild
                 >
                   <a
@@ -201,7 +190,7 @@ const Projects = () => {
                     View Code
                   </a>
                 </Button>
-                <Button className="bg-foreground hover:bg-foreground/80 text-background font-inter" asChild>
+                <Button className="bg-foreground hover:bg-foreground/80 text-background font-body" asChild>
                   <a
                     href={projects.find((p) => p.id === selectedProject)?.demo}
                     target="_blank"

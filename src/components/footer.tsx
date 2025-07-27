@@ -86,13 +86,7 @@ const Footer = () => {
         <svg width="100%" height="100%">
           <defs>
             <pattern id="footer-pattern" patternUnits="userSpaceOnUse" width="50" height="50">
-              <circle cx="25" cy="25" r="2" fill="currentColor" />
-              <path
-                d="M10,10 Q25,5 40,10 Q45,25 40,40 Q25,45 10,40 Q5,25 10,10"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="0.5"
-              />
+              <circle cx="25" cy="25" r="1" fill="currentColor" opacity="0.5" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#footer-pattern)" />
@@ -103,16 +97,16 @@ const Footer = () => {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="font-caveat text-5xl font-bold mb-6">Building something human-first?</h2>
-            <p className="font-inter text-xl opacity-80 mb-8">Let's talk.</p>
+            <h2 className="font-heading text-5xl font-bold mb-6">Building something human-first?</h2>
+            <p className="font-body text-xl opacity-80 mb-8">Let's talk.</p>
             <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Contact Form */}
-            <Card className="border-2 border-background bg-background/10 backdrop-blur-sm">
+            <Card className="border-2 border-background bg-transparent">
               <CardHeader>
-                <CardTitle className="font-caveat text-2xl text-background">Send a Message</CardTitle>
+                <CardTitle className="font-heading text-2xl text-background">Send a Message</CardTitle>
               </CardHeader>
               <CardContent>
                 <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
@@ -122,7 +116,7 @@ const Footer = () => {
                       placeholder="Your name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="bg-background/20 border-2 border-background/30 text-background placeholder:text-background/60 font-inter focus:border-primary"
+                      className="bg-background/10 border-2 border-background/30 text-background placeholder:text-background/60 font-body focus:border-primary"
                       required
                     />
                   </div>
@@ -133,7 +127,7 @@ const Footer = () => {
                       placeholder="your.email@example.com"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="bg-background/20 border-2 border-background/30 text-background placeholder:text-background/60 font-inter focus:border-primary"
+                      className="bg-background/10 border-2 border-background/30 text-background placeholder:text-background/60 font-body focus:border-primary"
                       required
                     />
                   </div>
@@ -144,13 +138,13 @@ const Footer = () => {
                       value={formData.message}
                       onChange={handleInputChange}
                       rows={4}
-                      className="bg-background/20 border-2 border-background/30 text-background placeholder:text-background/60 font-inter focus:border-primary resize-none"
+                      className="bg-background/10 border-2 border-background/30 text-background placeholder:text-background/60 font-body focus:border-primary resize-none"
                       required
                     />
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-primary hover:bg-primary/80 text-foreground border-2 border-primary font-inter text-lg py-3"
+                    className="w-full bg-primary hover:bg-primary/80 text-foreground font-body text-lg py-3"
                   >
                     <Send className="w-4 h-4 mr-2" />
                     Send Message
@@ -162,11 +156,11 @@ const Footer = () => {
             {/* Contact Info & Social */}
             <div className="space-y-8">
               <div>
-                <h3 className="font-caveat text-2xl font-bold mb-4">Other Ways to Connect</h3>
+                <h3 className="font-heading text-2xl font-bold mb-4">Other Ways to Connect</h3>
                 <div className="space-y-4">
                   <a
                     href="mailto:hello@sniff.dev"
-                    className="flex items-center space-x-3 text-background/80 hover:text-background transition-colors duration-300 font-inter text-lg"
+                    className="flex items-center space-x-3 text-background/80 hover:text-background transition-colors duration-300 font-body text-lg"
                   >
                     <Mail className="w-5 h-5" />
                     <span>hello@sniff.dev</span>
@@ -175,7 +169,7 @@ const Footer = () => {
               </div>
 
               <div>
-                <h3 className="font-caveat text-2xl font-bold mb-4">Find Me Online</h3>
+                <h3 className="font-heading text-2xl font-bold mb-4">Find Me Online</h3>
                 <div className="flex space-x-4">
                   <a
                     href="https://github.com/sniff"
@@ -197,8 +191,8 @@ const Footer = () => {
               </div>
 
               <div className="bg-background/10 border-2 border-background/20 rounded-2xl p-6">
-                <h4 className="font-caveat text-xl font-bold mb-3">Response Time</h4>
-                <p className="font-inter text-background/80 leading-relaxed">
+                <h4 className="font-heading text-xl font-bold mb-3">Response Time</h4>
+                <p className="font-body text-background/80 leading-relaxed">
                   I typically respond within 24-48 hours. If you're reaching out about accessibility or
                   neurodivergent-focused projects, I'll prioritize your message.
                 </p>
@@ -208,10 +202,10 @@ const Footer = () => {
 
           {/* Footer Bottom */}
           <div className="mt-16 pt-8 border-t border-background/20 text-center">
-            <p className="font-inter text-background/60 mb-4">
+            <p className="font-body text-background/60 mb-4">
               Built with empathy, powered by curiosity, designed for humans.
             </p>
-            <p className="font-inter text-sm text-background/40">
+            <p className="font-body text-sm text-background/40">
               © 2024 SNiFF. Made with care for minds that think differently.
             </p>
           </div>
