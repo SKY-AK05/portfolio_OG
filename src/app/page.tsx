@@ -4,9 +4,8 @@ import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Draggable } from "gsap/Draggable"
-import { DrawSVGPlugin } from "gsap/DrawSVGPlugin"
 import { Flip } from "gsap/Flip"
-import ThoughtMap from "@/components/thought-map"
+import Hero from "@/components/hero"
 import WhoIAm from "@/components/who-i-am"
 import Projects from "@/components/projects"
 import Mission from "@/components/mission"
@@ -14,9 +13,10 @@ import WhoIHelp from "@/components/who-i-help"
 import HowIThink from "@/components/how-i-think"
 import Footer from "@/components/footer"
 import AccessibilityControls from "@/components/accessibility-controls"
+import Header from "@/components/header"
 
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, Draggable, DrawSVGPlugin, Flip)
+  gsap.registerPlugin(ScrollTrigger, Draggable, Flip)
 }
 
 export default function Home() {
@@ -30,10 +30,11 @@ export default function Home() {
   return (
       <div ref={containerRef} className="min-h-screen bg-background overflow-x-hidden">
         <AccessibilityControls />
+        <Header />
 
-        {/* Central Thought Map Hub */}
-        <section className="min-h-screen flex items-center justify-center relative">
-          <ThoughtMap />
+        {/* Hero Section */}
+        <section id="hero" className="min-h-screen flex items-center justify-center relative">
+          <Hero />
         </section>
 
         {/* Who I Am Section */}

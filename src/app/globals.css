@@ -52,14 +52,14 @@
   h4,
   h5,
   h6 {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
   }
 }
 
 @layer utilities {
   .font-heading {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
   }
 
@@ -67,6 +67,26 @@
     font-family: 'Inter', sans-serif;
   }
 }
+
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 1rem;
+  background-color: hsl(var(--primary));
+  z-index: 100;
+}
+
+body::before {
+  left: 0;
+}
+
+body::after {
+  right: 0;
+}
+
 
 /* Accessibility Classes */
 .reduce-motion * {
@@ -135,6 +155,11 @@ html {
     top: auto !important;
     transform: none !important;
     margin-bottom: 1rem;
+  }
+  
+  body::before,
+  body::after {
+    width: 0.5rem;
   }
 }
 
