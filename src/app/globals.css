@@ -4,13 +4,13 @@
 
 @layer base {
   :root {
-    --background: 39 100% 98%; /* cream white */
+    --background: 40 100% 98%; /* cream white */
     --foreground: 240 10% 4%; /* near black */
 
-    --card: 39 100% 98%;
+    --card: 40 100% 98%;
     --card-foreground: 240 10% 4%;
 
-    --popover: 39 100% 98%;
+    --popover: 40 100% 98%;
     --popover-foreground: 240 10% 4%;
 
     --primary: 28 90% 70%; /* peachy orange */
@@ -68,26 +68,6 @@
   }
 }
 
-body::before,
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 1rem;
-  background-color: hsl(var(--primary));
-  z-index: 100;
-}
-
-body::before {
-  left: 0;
-}
-
-body::after {
-  right: 0;
-}
-
-
 /* Accessibility Classes */
 .reduce-motion * {
   animation-duration: 0.01ms !important;
@@ -132,11 +112,6 @@ body::after {
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
 }
 
 /* Responsive design helpers */
