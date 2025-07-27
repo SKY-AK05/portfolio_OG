@@ -5,7 +5,7 @@ import { Phone } from "lucide-react"
 const Header = () => {
   return (
     <header>
-      <div className="flex justify-between items-center px-4">
+      <div className="flex justify-between items-center px-4 py-4">
         <div className="text-2xl font-bold font-heading">
           Aakash
         </div>
