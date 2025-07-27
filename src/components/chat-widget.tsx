@@ -18,34 +18,7 @@ const ChatWidget = () => {
   const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-  const [showTeaser, setShowTeaser] = useState(false)
-  const [teaserText, setTeaserText] = useState("")
   const scrollAreaRef = useRef<HTMLDivElement>(null)
-
-  const fullTeaserText = "Developer and systems thinker building AI tools, simplifying workflows, mentoring minds, and solving real-world problems with clarity, logic, and purpose."
-
-  useEffect(() => {
-    // Show teaser after a delay
-    const timer = setTimeout(() => {
-      setShowTeaser(true)
-    }, 2000)
-    return () => clearTimeout(timer)
-  }, [])
-
-  useEffect(() => {
-    if (showTeaser && !isOpen) {
-      let i = 0
-      const typingInterval = setInterval(() => {
-        setTeaserText(fullTeaserText.slice(0, i + 1))
-        i++
-        if (i === fullTeaserText.length) {
-          clearInterval(typingInterval)
-        }
-      }, 50)
-      return () => clearInterval(typingInterval)
-    }
-  }, [showTeaser, isOpen])
-
 
   const openChat = () => {
     setIsOpen(true)
@@ -159,22 +132,12 @@ const ChatWidget = () => {
           </CardFooter>
         </Card>
       ) : (
-        <div className="relative">
-          {showTeaser && (
-            <div 
-              className="absolute bottom-20 right-0 w-64 bg-secondary text-secondary-foreground p-4 rounded-lg shadow-lg cursor-pointer animate-fade-in-up"
-              onClick={openChat}
-            >
-              <p className="text-sm font-body">{teaserText}<span className="animate-blink">|</span></p>
-            </div>
-          )}
-          <Button
-            onClick={openChat}
-            className="rounded-full w-16 h-16 shadow-lg animate-float"
-          >
-            <MessageSquare className="w-8 h-8" />
-          </Button>
-        </div>
+        <Button
+          onClick={openChat}
+          className="rounded-full w-16 h-16 shadow-lg animate-float"
+        >
+          <MessageSquare className="w-8 h-8" />
+        </Button>
       )}
     </div>
   )
