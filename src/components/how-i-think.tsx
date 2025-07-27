@@ -15,40 +15,40 @@ const HowIThink = () => {
 
   const thoughtCards = [
     {
-      id: "friction",
-      title: "Start with Friction",
+      id: "first-principles",
+      title: "First Principles > Opinions",
       sketch: "🔍",
       insight:
-        "I look for the moments where people struggle—not to judge, but to understand. Every friction point is a design opportunity waiting to be discovered.",
+        "I break things down to their root causes.",
       details:
-        "Most developers optimize for the happy path. I optimize for the moments when everything goes wrong, when executive function fails, when the user is overwhelmed. That's where real empathy lives.",
+        "Instead of accepting assumptions, I challenge them. If I’m wrong, I learn. If I’m right, I sharpen. It's about building on a foundation of truth.",
     },
     {
-      id: "calm",
-      title: "Calm by Default",
-      sketch: "🌊",
+      id: "truth-agreement",
+      title: "Truth > Agreement",
+      sketch: "🗣️",
       insight:
-        "Technology should lower your heart rate, not raise it. Every interface decision should ask: does this create peace or chaos?",
+        "I’d rather be corrected than comforted.",
       details:
-        "Calm isn't just about aesthetics—it's about cognitive load, predictable interactions, and giving users a sense of control. When someone opens my apps, I want them to exhale.",
+        "My goal is to find the best solution, not to win an argument. I actively seek out opposing viewpoints to test my own understanding and avoid echo chambers.",
     },
     {
-      id: "emotion",
-      title: "Emotion-First UI",
-      sketch: "💝",
+      id: "systems-tools",
+      title: "Systems > Tools",
+      sketch: "⚙️",
       insight:
-        "Before asking 'what does the user need to do?', I ask 'how does the user need to feel?' Functionality follows emotional safety.",
+        "Tools change. Systems last.",
       details:
-        "Traditional UX focuses on task completion. I focus on emotional regulation. A user who feels safe and understood will naturally be more productive and engaged.",
+        "While I'm proficient with many technologies, I focus on the underlying systems. A well-designed system can adapt to new tools, but no tool can fix a broken system.",
     },
     {
-      id: "structure",
-      title: "Structure as Kindness",
-      sketch: "🏗️",
+      id: "learning-labels",
+      title: "Learning > Labels",
+      sketch: "🧑‍🎓",
       insight:
-        "Clear patterns and consistent systems aren't constraints—they're acts of care for minds that crave predictability.",
+        "I don’t care what someone’s title is. I care what they know and how they think.",
       details:
-        "Neurodivergent brains often struggle with ambiguity. By creating clear, consistent patterns, I'm not limiting creativity—I'm creating a safe foundation for it to flourish.",
+        "Everyone has something to teach. I focus on the quality of ideas and the clarity of thought, regardless of where they come from. It's about continuous growth.",
     },
   ]
 
@@ -218,9 +218,7 @@ const HowIThink = () => {
           <div className="bg-muted border-2 border-foreground rounded-3xl p-8 max-w-3xl mx-auto">
             <h3 className="font-heading text-3xl font-bold text-foreground mb-4">The Core Philosophy</h3>
             <p className="font-body text-lg text-foreground leading-relaxed">
-              Every decision I make—from code architecture to color choices—stems from a simple belief: technology
-              should amplify human potential, not drain it. When we design with neurodivergent minds in mind, we create
-              better experiences for everyone.
+             You’ll often find me asking questions like: “What’s the hidden assumption here?”, “What would someone who disagrees say?”, “Can this be made clearer or simpler?”, or “Does this scale across other situations?”
             </p>
           </div>
         </div>

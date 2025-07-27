@@ -17,34 +17,34 @@ const WhoIHelp = () => {
 
   const helpCategories = [
     {
-      id: "neurodivergent-devs",
-      title: "Neurodivergent Developers",
-      description: "Finding their rhythm in a neurotypical tech world",
+      id: "neurodivergent-learners",
+      title: "Neurodivergent Learners",
+      description: "Training students and providing both technical and emotional feedback.",
       icon: "🧠",
       color: "bg-primary/20",
       position: { x: -200, y: -100 },
     },
     {
-      id: "overwhelmed-creators",
-      title: "Overwhelmed Creators",
-      description: "Drowning in tools that promise to help but don't",
+      id: "teammates-and-clients",
+      title: "Teammates & Clients",
+      description: "Using psychology to understand not just users, but teammates and clients.",
       icon: "🌊",
       color: "bg-secondary",
       position: { x: 200, y: -80 },
     },
     {
-      id: "accessibility-advocates",
-      title: "Accessibility Advocates",
-      description: "Fighting for inclusive design in their organizations",
-      icon: "♿",
+      id: "fellow-developers",
+      title: "Fellow Developers",
+      description: "Guiding conversations to unlock truth and opportunity within teams.",
+      icon: "🧑‍💻",
       color: "bg-background",
       position: { x: -150, y: 120 },
     },
     {
-      id: "quiet-leaders",
-      title: "Quiet Leaders",
-      description: "Leading with empathy in loud, fast-moving environments",
-      icon: "🤫",
+      id: "myself",
+      title: "Myself",
+      description: "Improving not just skills, but thinking patterns for life-long learning.",
+      icon: "🌱",
       color: "bg-primary/20",
       position: { x: 180, y: 140 },
     },
@@ -53,20 +53,20 @@ const WhoIHelp = () => {
   const testimonials = [
     {
       quote:
-        "SNiFF helped me realize that my ADHD wasn't a bug in my coding process—it was a feature that helped me see patterns others missed.",
-      author: "Alex, Frontend Developer",
-      role: "Mentee since 2023",
+        "What makes Aakash effective isn’t just that he knows what to say — it’s that he knows when to listen, and how to reflect back what others need to hear.",
+      author: "A Colleague",
+      role: "Orchvate",
     },
     {
       quote:
-        "The tools they built actually understand how my brain works. No more fighting against systems that weren't made for me.",
-      author: "Sam, UX Designer",
-      role: "Beta tester",
+        "He doesn’t sugarcoat. He doesn’t flatter. He clarifies and guides. He helps improve not just skills, but thinking patterns.",
+      author: "A Mentee",
+      role: "Trainee",
     },
     {
-      quote: "Finally, someone who gets that accessibility isn't just about compliance—it's about human dignity.",
-      author: "Jordan, Product Manager",
-      role: "Collaborator",
+      quote: "If someone learns how to debug their logic — in code and in life — Aakash considers his job done. That's his impact.",
+      author: "A Collaborator",
+      role: "Project Partner",
     },
   ]
 

@@ -7,7 +7,7 @@ const Mission = () => {
   const sectionRef = useRef<HTMLDivElement>(null)
   const keywordsRef = useRef<HTMLDivElement>(null)
 
-  const keywords = ["autonomy", "inclusion", "clarity", "flow", "emotion-safe", "sustainable", "human-first", "gentle"]
+  const keywords = ["Clarity", "Skill", "Impact", "Growth", "Contribution", "Honesty", "Mentorship", "Thinking Patterns"]
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -79,14 +79,13 @@ const Mission = () => {
             <h2 className="font-heading text-6xl font-bold text-foreground mb-8">My Mission</h2>
 
             <blockquote className="font-body text-3xl text-foreground leading-relaxed mb-8 italic">
-              "To build tech that creates space — especially for those navigating invisible struggles."
+              "I don’t just want to build apps. I want to build understanding."
             </blockquote>
 
             <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-8" />
 
             <p className="font-body text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-              Every line of code I write is an act of empathy. I believe technology should reduce cognitive load, not
-              add to it. It should understand that some days are harder than others, and that's perfectly human.
+              I’m not chasing a job or a title. I’m chasing clarity, skill, and impact. I want to leave behind tools that help people think better and systems that make life feel a little less chaotic.
             </p>
           </div>
 

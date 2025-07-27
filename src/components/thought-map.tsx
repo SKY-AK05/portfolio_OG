@@ -126,9 +126,9 @@ const ThoughtMap = () => {
         ref={centralNodeRef}
         className="relative z-10 bg-secondary border-2 border-foreground rounded-full p-8 max-w-md text-center shadow-lg transform hover:scale-105 transition-transform duration-300"
       >
-        <h1 className="font-heading text-4xl font-bold text-foreground mb-4">SNiFF</h1>
+        <h1 className="font-heading text-4xl font-bold text-foreground mb-4">Aakash</h1>
         <p className="font-body text-lg text-foreground leading-relaxed">
-          Developer. Educator. Builder of calm tools for chaotic minds.
+          The Relentless Thinker, Builder, and Guide
         </p>
         <div className="mt-4 flex justify-center space-x-2">
           <span className="text-2xl">🧠</span>

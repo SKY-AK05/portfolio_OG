@@ -15,10 +15,10 @@ const Projects = () => {
     {
       id: "promptweaver",
       title: "PromptWeaver",
-      subtitle: "Modular AI Prompt Tool",
-      description: "Built to clarify the prompt space, not complicate it.",
+      subtitle: "AI Prompt Structuring",
+      description: "A platform to refine and structure prompts, reflecting my obsession with clarity of language and thinking.",
       fullDescription:
-        "A structured approach to AI prompting that breaks down complex requests into manageable, reusable components. Perfect for neurodivergent minds that need clear frameworks.",
+        "A structured approach to AI prompting that breaks down complex requests into manageable, reusable components. A testbed for my obsession with clarity of language and thinking.",
       tech: ["React", "TypeScript", "AI SDK"],
       color: "bg-muted",
       icon: "🧵",
@@ -28,11 +28,11 @@ const Projects = () => {
     {
       id: "reva",
       title: "Reva",
-      subtitle: "Calm Task Assistant",
-      description: "Planning should feel like breathing, not drowning.",
+      subtitle: "Personalized Assistant App",
+      description: "More than a project — it was a testbed for building thoughtful AI interfaces.",
       fullDescription:
-        "A gentle task management system designed for ADHD brains. Focuses on emotional regulation and sustainable productivity patterns rather than aggressive optimization.",
-      tech: ["Next.js", "Supabase", "GSAP"],
+        "A native app that acts as a personalized assistant. I treated it as more than a project — it was a testbed for building thoughtful AI interfaces.",
+      tech: ["React Native", "Supabase", "GSAP"],
       color: "bg-secondary",
       icon: "🌱",
       github: "#",
@@ -41,13 +41,26 @@ const Projects = () => {
     {
       id: "smart-life",
       title: "Smart Life Manager",
-      subtitle: "Neurodivergent-First Productivity",
-      description: "What if productivity was about understanding your limits, not hacking them?",
+      subtitle: "Conversational Life Management",
+      description: "An AI agent that lets users manage their life (tasks, goals, expenses) just by chatting.",
       fullDescription:
-        "A comprehensive life management system that adapts to your energy levels, executive function patterns, and sensory needs. Built with deep understanding of neurodivergent experiences.",
-      tech: ["React Native", "Node.js", "PostgreSQL"],
+        "A goal I’m pursuing — an AI agent that lets users manage their life (tasks, goals, expenses) just by chatting. Simple on the outside, powerful under the hood.",
+      tech: ["AI Agents", "Node.js", "System Design"],
       color: "bg-background",
       icon: "🧠",
+      github: "#",
+      demo: "#",
+    },
+     {
+      id: "auto-attendance",
+      title: "Auto Attendance Bot",
+      subtitle: "Workflow Automation",
+      description: "Not just a tech solution — it was workflow design.",
+      fullDescription:
+        "This was not just a tech solution — it was workflow design. From reading Teams messages to Excel macros to fuzzy name matching — it was system-level thinking applied practically.",
+      tech: ["Python", "Excel Macros", "Automation"],
+      color: "bg-muted",
+      icon: "🤖",
       github: "#",
       demo: "#",
     },
@@ -121,7 +134,7 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div ref={projectsGridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div ref={projectsGridRef} className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
           {projects.map((project) => (
             <div
               key={project.id}

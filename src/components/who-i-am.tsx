@@ -9,21 +9,21 @@ const WhoIAm = () => {
   const tagsRef = useRef<HTMLDivElement>(null)
 
   const traits = [
-    "neurodivergent",
-    "systems thinker",
-    "ADHD-friendly",
-    "builder of calm",
-    "digital empathy",
-    "pattern seeker",
-    "quiet revolutionary",
-    "accessibility advocate",
+    "Systems Thinker",
+    "Psychology",
+    "Influence & Communication",
+    "Emotional Intelligence",
+    "Builder",
+    "Mentor",
+    "Developer",
+    "Resourceful",
   ]
 
   const timelineEvents = [
-    { year: "2018", event: "Started coding to solve my own chaos", icon: "💡" },
-    { year: "2020", event: "Discovered the power of inclusive design", icon: "🌈" },
-    { year: "2022", event: "Built first neurodivergent-friendly tool", icon: "🧠" },
-    { year: "2024", event: "Mentoring others who think differently", icon: "🤝" },
+    { year: "Intern", event: "Started as an intern at Orchvate, learning annotation and instruction.", icon: "💡" },
+    { year: "Supervisor", event: "Moved into a supervisor and trainer role, preparing case studies on learners.", icon: "📈" },
+    { year: "Mentor", event: "Provided both technical and emotional mentorship to neurodivergent students.", icon: "🧠" },
+    { year: "Future", event: "Exploring freelancing, product creation, and continuing mentorship.", icon: "🔮" },
   ]
 
   useEffect(() => {
@@ -114,12 +114,10 @@ const WhoIAm = () => {
 
             <div className="text-center space-y-4">
               <p className="font-body text-xl text-foreground leading-relaxed">
-                I'm a developer who thinks in systems and feels in code. My brain works differently, and I've learned
-                that's not a bug—it's a feature that helps me build tools that actually make sense for people like me.
+                I am Aakash — a curious, driven individual who believes in building, thinking, and helping others level up alongside me. My story is rooted in consistency, reflection, and resourcefulness.
               </p>
               <p className="font-body text-lg text-muted-foreground leading-relaxed">
-                When I'm not coding, I'm probably reorganizing my task management system for the hundredth time or
-                helping someone else navigate the beautiful chaos of neurodivergent productivity.
+                As a developer, I soon realized code is just a language. What really matters is thought. Whether I’m working with React, Tailwind, Supabase, or Python, the core idea remains: can I solve a problem with clarity?
               </p>
             </div>
 
@@ -138,7 +136,7 @@ const WhoIAm = () => {
 
           {/* Timeline */}
           <div ref={timelineRef} className="space-y-8">
-            <h3 className="font-heading text-3xl font-bold text-foreground text-center mb-8">My Journey</h3>
+            <h3 className="font-heading text-3xl font-bold text-foreground text-center mb-8">My Journey at Orchvate</h3>
             <div className="relative">
               {/* Timeline line */}
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/30" />
