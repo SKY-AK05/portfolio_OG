@@ -20,10 +20,36 @@ const WhoIAm = () => {
   ]
 
   const timelineEvents = [
-    { year: "Intern", event: "Started as an intern at Orchvate, learning annotation and instruction.", icon: "💡" },
-    { year: "Supervisor", event: "Moved into a supervisor and trainer role, preparing case studies on learners.", icon: "📈" },
-    { year: "Mentor", event: "Provided both technical and emotional mentorship to neurodivergent students.", icon: "🧠" },
-    { year: "Future", event: "Exploring freelancing, product creation, and continuing mentorship.", icon: "🔮" },
+    {
+      title: "Student Life",
+      icon: "🎓",
+      description: "Started my journey in Computer Science. Learned basics of logic, programming, and problem-solving.",
+    },
+    {
+      title: "Degree Completed",
+      icon: "📜",
+      description: "Graduated with B.Sc in Computer Science.",
+    },
+    {
+      title: "Internship – Data Annotation",
+      icon: "🏷️",
+      description: "Worked at Orchavte learning image and text labeling. Built strong foundations in annotation tools and workflows.",
+    },
+    {
+      title: "Supervisor – Orchavte",
+      icon: "🧑‍🏫",
+      description: "Guided neurodivergent students, created accessible learning experiences, led reviews and standups.",
+    },
+    {
+      title: "Mentor – Inclusive Tech",
+      icon: "🌈",
+      description: "Mentored new learners, helped build skill confidence, and built training systems.",
+    },
+    {
+      title: "Product Builder – PromptWeaver & Beyond",
+      icon: "⚒️",
+      description: "Launched PromptWeaver, started building AI-first tools. Now exploring productivity, healthcare, and automation projects.",
+    },
   ]
 
   useEffect(() => {
@@ -57,12 +83,13 @@ const WhoIAm = () => {
             x: 0,
             duration: 0.8,
             ease: "power2.out",
-            stagger: 0.2,
+            stagger: 0.3,
             scrollTrigger: {
               trigger: timelineRef.current,
               start: "top 70%",
               end: "bottom 30%",
               toggleActions: "play none none reverse",
+              scrub: 1,
             },
           },
         )
@@ -136,13 +163,13 @@ const WhoIAm = () => {
 
           {/* Timeline */}
           <div ref={timelineRef} className="space-y-8">
-            <h3 className="font-heading text-3xl font-bold text-foreground text-center mb-8">My Journey at Orchvate</h3>
+            <h3 className="font-heading text-3xl font-bold text-foreground text-center mb-8">My Journey</h3>
             <div className="relative">
               {/* Timeline line */}
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/30" />
 
-              {timelineEvents.map((event) => (
-                <div key={event.year} className="timeline-item relative flex items-start space-x-6 pb-8">
+              {timelineEvents.map((event, index) => (
+                <div key={index} className="timeline-item relative flex items-start space-x-6 pb-8">
                   {/* Timeline dot */}
                   <div className="w-16 h-16 bg-secondary border-2 border-foreground rounded-full flex items-center justify-center z-10 flex-shrink-0">
                     <span className="text-2xl">{event.icon}</span>
@@ -150,8 +177,8 @@ const WhoIAm = () => {
 
                   {/* Content */}
                   <div className="flex-1 bg-background border-2 border-foreground/20 rounded-lg p-6 shadow-md">
-                    <div className="font-heading text-2xl font-bold text-primary mb-2">{event.year}</div>
-                    <p className="font-body text-lg text-foreground leading-relaxed">{event.event}</p>
+                    <div className="font-heading text-2xl font-bold text-primary mb-2">{event.title}</div>
+                    <p className="font-body text-lg text-foreground leading-relaxed">{event.description}</p>
                   </div>
                 </div>
               ))}
