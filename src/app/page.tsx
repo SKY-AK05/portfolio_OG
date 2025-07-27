@@ -14,6 +14,7 @@ import Projects from "@/components/projects"
 import Mission from "@/components/mission"
 import WhoIHelp from "@/components/who-i-help"
 import HowIThink from "@/components/how-i-think"
+import ChatBubble from "@/components/chat-bubble"
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, Draggable, Flip)
@@ -63,7 +64,7 @@ export default function Home() {
             <HowIThink />
           </section>
         </main>
-
+        <ChatBubble />
         {/* Footer */}
         <Footer />
       </div>
