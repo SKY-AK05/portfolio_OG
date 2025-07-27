@@ -1,6 +1,7 @@
 "use client"
 
 import Image from 'next/image'
+import TypingEffect from './typing-effect'
 
 const Hero = () => {
   return (
@@ -50,10 +51,12 @@ const Hero = () => {
         </div>
 
         {/* Right Column */}
-        <div className="md:col-span-4 space-y-8">
-           <p className="font-body text-lg">
-            Developer and systems thinker building AI tools, simplifying workflows, mentoring minds, and solving real-world problems with clarity, logic, and purpose.
-          </p>
+        <div className="md:col-span-4">
+          <div className="bg-secondary p-6 rounded-lg shadow-lg">
+            <p className="font-body text-lg">
+              <TypingEffect text="Developer and systems thinker building AI tools, simplifying workflows, mentoring minds, and solving real-world problems with clarity, logic, and purpose." />
+            </p>
+          </div>
         </div>
 
       </div>
