@@ -10,9 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        headline: ['Caveat', 'sans-serif'],
-        code: ['monospace'],
+        body: ['Patrick Hand', 'Comic Sans MS', 'cursive'],
+        headline: ['Caveat', 'Brush Script MT', 'cursive'],
       },
       colors: {
         background: 'hsl(var(--background))',

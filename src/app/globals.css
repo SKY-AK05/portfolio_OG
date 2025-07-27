@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Patrick Hand', 'Comic Sans MS', cursive;
 }
 
 @layer base {
   :root {
-    --background: 43 67% 90%; /* Champagne Beige: #F7E7CE */
+    --background: 40 86% 99%; /* Cream White: #FFFDF8 */
     --foreground: 0 0% 18%; /* Dark Charcoal: #2E2E2E */
     
-    --card: 40 86% 99%; /* Cream White: #FFFDF8 */
+    --card: 43 67% 90%; /* Champagne Beige: #F7E7CE */
     --card-foreground: 0 0% 18%; /* Dark Charcoal: #2E2E2E */
     
     --popover: 40 86% 99%;
@@ -20,7 +20,7 @@ body {
     --primary: 267 43% 80%; /* Muted Lavender: #C5B4E3 */
     --primary-foreground: 0 0% 18%;
 
-    --secondary: 267 30% 88%;
+    --secondary: 43 67% 90%;
     --secondary-foreground: 0 0% 18%;
 
     --muted: 267 30% 94%;
@@ -32,7 +32,7 @@ body {
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 267 20% 75%;
+    --border: 0 0% 18%;
     --input: 267 20% 88%;
     --ring: 180 100% 25%;
     
@@ -45,18 +45,18 @@ body {
   }
   .dark {
     --background: 0 0% 18%; /* Dark Charcoal */
-    --foreground: 43 67% 90%; /* Champagne Beige */
+    --foreground: 40 86% 99%; /* Cream White */
     
     --card: 0 0% 22%;
-    --card-foreground: 43 67% 90%;
+    --card-foreground: 40 86% 99%;
     
     --popover: 0 0% 22%;
-    --popover-foreground: 43 67% 90%;
+    --popover-foreground: 40 86% 99%;
 
     --primary: 267 43% 70%; 
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 267 30% 60%;
+    --secondary: 0 0% 22%;
     --secondary-foreground: 0 0% 98%;
 
     --muted: 267 20% 30%;
@@ -68,7 +68,7 @@ body {
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 267 20% 50%;
+    --border: 40 86% 99%;
     --input: 267 20% 40%;
     --ring: 180 100% 35%;
   }
@@ -82,22 +82,65 @@ body {
     @apply bg-background text-foreground;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-headline;
+    font-family: 'Caveat', 'Brush Script MT', cursive;
   }
 }
 
-@layer components {
-  .hand-drawn {
-    @apply rounded-xl border-2 border-foreground/50 shadow-[4px_4px_0px_theme(colors.foreground/50)] transition-all duration-200 ease-out;
-  }
-  .hand-drawn:hover {
-    @apply -translate-x-px -translate-y-px shadow-[5px_5px_0px_theme(colors.foreground/50)];
-  }
+.high-contrast {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 0%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 0%;
+  --primary: 0 0% 0%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 0%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 85%;
+  --muted-foreground: 0 0% 10%;
+  --accent: 0 0% 0%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 100% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 0%;
+  --input: 0 0% 70%;
+  --ring: 0 0% 0%;
+}
+.high-contrast * {
+  border-color: #000 !important;
+}
 
-  .hand-drawn-accent {
-    @apply rounded-xl border-2 border-accent/70 shadow-[4px_4px_0px_theme(colors.accent/70)] transition-all duration-200 ease-out;
+.dyslexia-font * {
+  font-family: "OpenDyslexic", "Comic Sans MS", cursive !important;
+}
+
+.focus-mode .project-bubble:not(:hover),
+.focus-mode .thought-card:not(:hover),
+.focus-mode .web-item:not(:hover) {
+  opacity: 0.3;
+  filter: blur(1px);
+}
+
+.reduce-motion * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
   }
-  .hand-drawn-accent:hover {
-    @apply -translate-x-px -translate-y-px shadow-[5px_5px_0px_theme(colors.accent/70)];
+  50% {
+    transform: translateY(-10px);
   }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+html {
+  scroll-behavior: smooth;
 }
