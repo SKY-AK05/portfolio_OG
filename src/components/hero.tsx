@@ -44,12 +44,11 @@ const Hero = () => {
           </div>
           <div className="relative z-10 w-[300px] h-[450px]">
             <Image
-              src="https://placehold.co/300x450.png"
+              src="/svg/me.svg"
               alt="Aakash - a placeholder image"
               width={300}
               height={450}
-              className="rounded-lg object-cover"
-              data-ai-hint="portrait man"
+              className="rounded-lg object-contain"
             />
           </div>
         </div>
