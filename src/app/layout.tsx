@@ -3,10 +3,11 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/components/theme-provider';
+import { GeistSans } from 'geist/font/sans';
 
 export const metadata: Metadata = {
-  title: "SNiFF's Digital Mind Garden",
-  description: 'A digital thought map for a developer, educator, and builder of calm tools.',
+  title: "GitIngest",
+  description: 'Turn any Git repository into a simple text digest of its codebase.',
 };
 
 export default function RootLayout({
@@ -16,13 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Patrick+Hand&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=OpenDyslexic" rel="stylesheet" />
-      </head>
-      <body className={cn("font-body antialiased", "min-h-screen bg-background text-foreground")}>
+      <body className={cn(GeistSans.className, "min-h-screen bg-background text-foreground antialiased")}>
         <ThemeProvider>
           {children}
           <Toaster />
