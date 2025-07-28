@@ -27,10 +27,8 @@ export default function Home() {
 
   const handleIntroComplete = () => {
     setShowIntro(false)
-    gsap.fromTo(containerRef.current, 
-      { opacity: 0 }, 
-      { opacity: 1, duration: 0.5, delay: 0.2 }
-    );
+    // The main container is now always visible after intro, controlled by GSAP
+    gsap.to(containerRef.current, { opacity: 1, duration: 0.5 });
   }
 
   return (
@@ -40,7 +38,7 @@ export default function Home() {
       <div 
         ref={containerRef} 
         className="min-h-screen bg-background flex flex-col"
-        style={{ opacity: showIntro ? 0 : 1 }}
+        style={{ opacity: showIntro ? 0 : 1 }} // Start with opacity 0 if intro is showing
       >
         <AccessibilityControls />
         <Header />

@@ -10,10 +10,11 @@ const IntroAnimation = ({ onComplete }: { onComplete: () => void }) => {
   const [isTyping, setIsTyping] = useState(true)
 
   const calculateHeroPosition = () => {
+    // Find the target "Hey" span in the Hero component
     const heroHey = document.querySelector('[data-hey-target]') as HTMLElement
     if (heroHey && textRef.current) {
       const rect = heroHey.getBoundingClientRect()
-      // Calculate scale based on the width difference
+      // Calculate the scale factor based on width difference
       const scale = rect.width / textRef.current.offsetWidth
       return {
         left: rect.left,
@@ -21,16 +22,14 @@ const IntroAnimation = ({ onComplete }: { onComplete: () => void }) => {
         scale: scale
       }
     }
-    // Fallback position if target isn't found
+    // Fallback position if the target element isn't found yet
     return { left: '50%', top: '50%', scale: 1 }
   }
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Start with the intro visible
       gsap.set(introRef.current, { opacity: 1 });
 
-      // Typing animation for "Hey"
       const text = "Hey"
       let currentIndex = 0
       
@@ -42,19 +41,17 @@ const IntroAnimation = ({ onComplete }: { onComplete: () => void }) => {
           clearInterval(typeInterval)
           setIsTyping(false)
           
-          // Pause for 1 second
+          // Pause for a moment after typing
           setTimeout(() => {
             const finalPos = calculateHeroPosition()
             
-            // Animate "Hey" to its final position and scale
+            // Animate the intro "Hey" to its final position and scale
             gsap.to(textRef.current, {
               position: 'fixed',
               left: finalPos.left,
               top: finalPos.top,
               scale: finalPos.scale,
-              x: 0, // Reset any transform
-              y: 0,
-              xPercent: 0, // Use x/y instead of translate
+              xPercent: 0,
               yPercent: 0,
               duration: 1.5,
               ease: "power2.inOut",
@@ -62,7 +59,7 @@ const IntroAnimation = ({ onComplete }: { onComplete: () => void }) => {
                 // Signal to the Hero component that the intro has landed
                 document.dispatchEvent(new Event('introLanded'))
                 
-                // Hide the intro container after a short delay
+                // Fade out the intro container, leaving the hero visible
                 gsap.to(introRef.current, {
                   opacity: 0,
                   duration: 0.5,
@@ -72,7 +69,7 @@ const IntroAnimation = ({ onComplete }: { onComplete: () => void }) => {
                 })
               }
             })
-          }, 1000)
+          }, 1000) // 1-second pause
         }
       }, 150) // Typing speed
 
