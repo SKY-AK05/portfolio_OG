@@ -37,8 +37,6 @@ export default function Home() {
 
   const handleIntroComplete = () => {
     setShowIntro(false)
-    // Clean up the data attribute
-    document.body.removeAttribute('data-intro-complete')
   }
 
   return (
@@ -48,11 +46,10 @@ export default function Home() {
       <div 
         ref={containerRef} 
         className={`min-h-screen bg-background flex flex-col transition-opacity duration-1000 ${
-          showIntro ? 'opacity-0 pointer-events-none' : 'opacity-100'
+          showIntro ? 'opacity-0' : 'opacity-100'
         }`}
         style={{ 
-          opacity: showIntro ? 0 : 1,
-          pointerEvents: showIntro ? 'none' : 'auto'
+          visibility: showIntro ? 'hidden' : 'visible'
         }}
       >
         <AccessibilityControls />
