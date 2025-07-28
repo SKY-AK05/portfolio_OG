@@ -66,6 +66,10 @@
   .font-body {
     font-family: 'Inter', sans-serif;
   }
+
+  .font-handwriting {
+    font-family: var(--font-patrick-hand), 'Architects Daughter', cursive;
+  }
 }
 
 /* Accessibility Classes */

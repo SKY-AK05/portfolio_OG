@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Draggable } from "gsap/Draggable"
@@ -15,6 +15,7 @@ import Mission from "@/components/mission"
 import WhoIHelp from "@/components/who-i-help"
 import HowIThink from "@/components/how-i-think"
 import ChatWidget from "@/components/chat-widget"
+import IntroAnimation from "@/components/intro-animation"
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, Draggable, Flip)
@@ -22,14 +23,38 @@ if (typeof window !== "undefined") {
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const [showIntro, setShowIntro] = useState(true)
 
   useEffect(() => {
-    // Initialize smooth scrolling and page entrance
-    gsap.fromTo(containerRef.current, { opacity: 0 }, { opacity: 1, duration: 1.5, ease: "power2.out" })
-  }, [])
+    // Only animate main content entrance when intro is complete
+    if (!showIntro) {
+      gsap.fromTo(containerRef.current, 
+        { opacity: 0, y: 20 }, 
+        { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
+      )
+    }
+  }, [showIntro])
+
+  const handleIntroComplete = () => {
+    setShowIntro(false)
+    // Clean up the data attribute
+    document.body.removeAttribute('data-intro-complete')
+  }
 
   return (
-      <div ref={containerRef} className="min-h-screen bg-background flex flex-col">
+    <>
+      {showIntro && <IntroAnimation onComplete={handleIntroComplete} />}
+      
+      <div 
+        ref={containerRef} 
+        className={`min-h-screen bg-background flex flex-col transition-opacity duration-1000 ${
+          showIntro ? 'opacity-0 pointer-events-none' : 'opacity-100'
+        }`}
+        style={{ 
+          opacity: showIntro ? 0 : 1,
+          pointerEvents: showIntro ? 'none' : 'auto'
+        }}
+      >
         <AccessibilityControls />
         <Header />
 
@@ -68,5 +93,6 @@ export default function Home() {
         {/* Footer */}
         <Footer />
       </div>
+    </>
   )
 }
