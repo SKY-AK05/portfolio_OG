@@ -42,7 +42,7 @@ const IntroAnimation = ({ onComplete }: { onComplete: () => void }) => {
           clearInterval(typeInterval)
           setIsTyping(false)
           
-          // Pause for 2 seconds
+          // Pause for 1 second
           setTimeout(() => {
             const finalPos = calculateHeroPosition()
             
@@ -59,21 +59,20 @@ const IntroAnimation = ({ onComplete }: { onComplete: () => void }) => {
               duration: 1.5,
               ease: "power2.inOut",
               onComplete: () => {
-                // Signal to the Hero component that the intro is done
-                document.dispatchEvent(new Event('introComplete'))
+                // Signal to the Hero component that the intro has landed
+                document.dispatchEvent(new Event('introLanded'))
+                
                 // Hide the intro container after a short delay
-                setTimeout(() => {
-                  gsap.to(introRef.current, {
-                    opacity: 0,
-                    duration: 0.5,
-                    onComplete: () => {
-                      onComplete()
-                    }
-                  })
-                }, 500) // Keep it visible for a moment to ensure smoothness
+                gsap.to(introRef.current, {
+                  opacity: 0,
+                  duration: 0.5,
+                  onComplete: () => {
+                    onComplete()
+                  }
+                })
               }
             })
-          }, 2000)
+          }, 1000)
         }
       }, 150) // Typing speed
 

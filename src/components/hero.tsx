@@ -7,42 +7,30 @@ import TypingEffect from './typing-effect'
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null)
   const heyRef = useRef<HTMLSpanElement>(null)
-  const restContentRef = useRef<HTMLDivElement>(null)
+  const restOfTitleRef = useRef<HTMLSpanElement>(null)
+  const fadeInsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Start with "Hey" visible but the rest of the content hidden
-      gsap.set(restContentRef.current, { opacity: 0 })
-
-      // This function will be triggered when the intro completes
       const animateRestOfContent = () => {
-        gsap.set(restContentRef.current, { opacity: 1 })
+        // Ensure the "Hey" is visible and in place
+        gsap.set(heyRef.current, { opacity: 1 })
         
-        // Animate " There, I'm Aakash" with typing effect
-        const titleElements = heroRef.current?.querySelectorAll('[data-type-animation]')
-        titleElements?.forEach((el, index) => {
-          gsap.fromTo(el, 
-            { opacity: 0, x: -20 },
-            { 
-              opacity: 1, 
-              x: 0, 
-              duration: 0.5, 
-              delay: 0.2 + index * 0.3, // Small delay after "Hey" lands
-              ease: "power2.out"
-            }
-          )
-        })
+        // Animate the rest of the title and the fade-in elements
+        gsap.fromTo(restOfTitleRef.current,
+          { opacity: 0, x: -20 },
+          { opacity: 1, x: 0, duration: 0.5, delay: 0.2, ease: "power2.out" }
+        )
 
-        // Animate email and experience with a fade-in-up effect
-        const otherElements = restContentRef.current?.querySelectorAll('[data-fade-in]')
-        otherElements?.forEach((el, index) => {
+        const fadeElements = fadeInsRef.current?.querySelectorAll('[data-fade-in]')
+        fadeElements?.forEach((el, index) => {
           gsap.fromTo(el,
             { opacity: 0, y: 20 },
             {
               opacity: 1,
               y: 0,
               duration: 0.6,
-              delay: 1.5 + index * 0.2, // Staggered delay
+              delay: 0.8 + index * 0.2, // Staggered delay
               ease: "power2.out"
             }
           )
@@ -50,10 +38,10 @@ const Hero = () => {
       }
 
       // Listen for the custom event dispatched by the intro animation
-      document.addEventListener('introComplete', animateRestOfContent)
+      document.addEventListener('introLanded', animateRestOfContent)
 
       return () => {
-        document.removeEventListener('introComplete', animateRestOfContent)
+        document.removeEventListener('introLanded', animateRestOfContent)
       }
     }, heroRef)
 
@@ -67,18 +55,18 @@ const Hero = () => {
         {/* Left Column */}
         <div className="md:col-span-4 space-y-8">
           <h1 className="font-heading text-6xl md:text-7xl font-bold leading-tight">
-            <span ref={heyRef} data-hey-target className="text-primary inline-block">Hey</span>
-            <span ref={restContentRef} className="inline-block">
-              <span data-type-animation className="inline-block"> There,</span>
+            <span ref={heyRef} data-hey-target className="text-primary inline-block opacity-0">Hey</span>
+            <span ref={restOfTitleRef} className="inline-block opacity-0">
+              <span> There,</span>
               <br />
-              <span data-type-animation className="inline-block">I'm Aakash</span>
+              <span>I'm Aakash</span>
             </span>
           </h1>
-          <div className="opacity-0" ref={restContentRef}>
-            <a href="mailto:aakash@example.com" className="text-primary font-body font-semibold hover:underline" data-fade-in>
+          <div ref={fadeInsRef}>
+            <a href="mailto:aakash@example.com" className="text-primary font-body font-semibold hover:underline opacity-0" data-fade-in>
               aakash@example.com
             </a>
-            <div data-fade-in>
+            <div className="opacity-0" data-fade-in>
               <p className="text-4xl font-heading font-bold">10</p>
               <p className="font-body text-sm text-muted-foreground">YEARS EXPERIENCE</p>
             </div>

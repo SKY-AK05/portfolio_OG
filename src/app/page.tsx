@@ -25,18 +25,12 @@ export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [showIntro, setShowIntro] = useState(true)
 
-  useEffect(() => {
-    // Only animate main content entrance when intro is complete
-    if (!showIntro) {
-      gsap.fromTo(containerRef.current, 
-        { opacity: 0, y: 20 }, 
-        { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
-      )
-    }
-  }, [showIntro])
-
   const handleIntroComplete = () => {
     setShowIntro(false)
+    gsap.fromTo(containerRef.current, 
+      { opacity: 0 }, 
+      { opacity: 1, duration: 0.5, delay: 0.2 }
+    );
   }
 
   return (
@@ -45,12 +39,8 @@ export default function Home() {
       
       <div 
         ref={containerRef} 
-        className={`min-h-screen bg-background flex flex-col transition-opacity duration-1000 ${
-          showIntro ? 'opacity-0' : 'opacity-100'
-        }`}
-        style={{ 
-          visibility: showIntro ? 'hidden' : 'visible'
-        }}
+        className="min-h-screen bg-background flex flex-col"
+        style={{ opacity: showIntro ? 0 : 1 }}
       >
         <AccessibilityControls />
         <Header />
