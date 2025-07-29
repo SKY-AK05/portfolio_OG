@@ -1,20 +1,22 @@
 :root {
   --on: 0;
   --bg: transparent;
-  --cord: hsl(var(--foreground) / 0.8);
-  --stroke: hsl(var(--foreground) / 0.8);
+  --cord: hsl(var(--primary) / 0.8);
+  --stroke: hsl(var(--foreground));
   --shine: hsla(0, 0%, 100%, calc(0.75 - (var(--on) * 0.5)));
-  --cap: hsl(var(--foreground) / 0.5);
+  --cap: hsl(var(--primary) / 0.5);
   --filament: hsl(var(--primary));
+  --bulb-fill: hsl(var(--primary));
+  --bulb-glow: 0 0 24px 6px hsl(var(--primary) / 0.5);
 }
 
 .toggle-scene {
   overflow: visible !important;
-  height: 150px;
-  width: 60px;
+  height: 80px;
+  width: 40px;
   position: relative;
-  top: -20px;
-  right: -10px;
+  top: 10px;
+  right: -5px;
   z-index: 50;
 }
 
@@ -42,13 +44,13 @@
 }
 
 .bulb__filament {
-  stroke: var(--filament);
-  filter: drop-shadow(0 0 10px hsl(var(--primary))) drop-shadow(0 0 20px hsl(var(--primary)));
+  stroke: hsl(var(--foreground));
+  filter: drop-shadow(0 0 10px hsl(var(--foreground))) drop-shadow(0 0 20px hsl(var(--foreground)));
   opacity: var(--on);
   transition: opacity 0.2s ease-in-out;
 }
 .bulb__shine {
-  stroke: var(--shine);
+  stroke: hsl(var(--foreground) / 0.6);
 }
 .bulb__flash {
   stroke: hsl(var(--primary));
@@ -56,11 +58,12 @@
 }
 .bulb__bulb {
   stroke: var(--stroke);
-  fill: hsla(var(--primary), calc(0.1 + (0.4 * var(--on))));
-  transition: fill 0.2s ease-in-out;
+  fill: var(--bulb-fill);
+  filter: drop-shadow(var(--bulb-glow));
+  transition: fill 0.2s, filter 0.2s;
 }
 .bulb__cap {
-  fill: var(--cap);
+  fill: hsl(var(--primary) / 0.7);
 }
 .bulb__cap-shine {
   fill: var(--shine);
@@ -71,4 +74,6 @@
 
 html.dark {
   --on: 1;
+  --bulb-fill: hsl(var(--foreground));
+  --bulb-glow: none;
 }
