@@ -48,12 +48,10 @@ const Hero = () => {
         {/* Left Column */}
         <div className="md:col-span-4 space-y-8">
           <h1 ref={titleRef} className="font-heading text-6xl md:text-7xl font-bold leading-tight">
-            <span className="text-primary inline-block">Hey</span>
-            <span className="inline-block">
-              <span> There,</span>
-              <br />
-              <span>I'm Aakash</span>
-            </span>
+            <span className="block text-primary">Hey</span>
+            <span className="block">There,</span>
+            <span className="block">I'm</span>
+            <span className="block">Aakash</span>
           </h1>
           <div ref={fadeInsRef}>
             <a href="mailto:aakash@example.com" className="text-primary font-body font-semibold hover:underline" data-fade-in>
