@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import TypingEffect from './typing-effect'
-import ThemeSwitcher from "./theme-switcher"
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -56,7 +55,6 @@ const Hero = () => {
 
   return (
     <div ref={heroRef} className="container mx-auto px-4 py-8 relative">
-       <ThemeSwitcher />
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
         
         {/* Left Column */}

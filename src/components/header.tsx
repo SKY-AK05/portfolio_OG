@@ -1,10 +1,11 @@
 "use client"
 
 import { Phone } from "lucide-react"
+import ThemeSwitcher from "./theme-switcher"
 
 const Header = () => {
   return (
-    <header>
+    <header className="relative">
       <div className="flex justify-between items-center px-4 py-4">
         <div className="text-2xl font-bold font-heading">
           Aakash
@@ -22,6 +23,7 @@ const Header = () => {
           </a>
         </div>
       </div>
+      <ThemeSwitcher />
     </header>
   )
 }

@@ -40,9 +40,7 @@ export default function RootLayout({
     <html lang="en">
        <body className={cn(inter.variable, poppins.variable, patrickHand.variable, "min-h-screen bg-background text-foreground antialiased font-body overflow-x-hidden")}>
         <ThemeProvider>
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            {children}
-          </div>
+          {children}
           <Toaster />
         </ThemeProvider>
       </body>

@@ -36,7 +36,7 @@ export default function Home() {
       
       <div 
         ref={containerRef} 
-        className="min-h-screen bg-background flex flex-col"
+        className="min-h-screen bg-background flex flex-col mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
         style={{ opacity: showIntro ? 0 : 1 }} // Start with opacity 0 if intro is showing
       >
         <Header />
