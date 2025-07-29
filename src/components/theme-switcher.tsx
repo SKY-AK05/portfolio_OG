@@ -16,7 +16,6 @@ const ThemeSwitcher = () => {
   const isMounted = useRef(false)
 
   useEffect(() => {
-    // Ensure this runs only on the client
     if (typeof window === 'undefined' || isMounted.current) return;
     isMounted.current = true;
 
@@ -113,7 +112,7 @@ const ThemeSwitcher = () => {
   }, [theme, setTheme])
 
   return (
-    <div className="absolute top-0 right-0 z-50">
+    <div className="relative z-50">
       <svg className="toggle-scene" xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin' viewBox='0 0 197.451 481.081'>
         <defs>
           <marker id='a' orient='auto' overflow='visible' refX='0' refY='0'>

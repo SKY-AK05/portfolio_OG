@@ -12,9 +12,9 @@
   overflow: visible !important;
   height: 150px;
   width: 60px;
-  position: absolute;
-  top: 0px;
-  right: 20px;
+  position: relative;
+  top: -20px;
+  right: -10px;
   z-index: 50;
 }
 
