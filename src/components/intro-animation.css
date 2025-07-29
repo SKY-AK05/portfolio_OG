@@ -7,12 +7,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: hsl(var(--background));
+  background-color: #3e65ff;
   z-index: 1000;
 }
 
-.smiley {
-  width: 150px;
-  height: 150px;
-  overflow: visible;
+.intro-svg {
+  width: 70%;
+  max-width: 294px; /* Maintain aspect ratio */
+  display: block;
+  margin: auto;
+}
+
+.intro-svg #smile-up,
+.intro-svg #eye-to-left,
+.intro-svg #eye-to-right,
+.intro-svg #bg {
+  visibility: hidden;
 }
