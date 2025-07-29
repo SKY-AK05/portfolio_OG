@@ -15,13 +15,7 @@ const IntroAnimation = ({ onComplete }: { onComplete: () => void }) => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
-        onComplete: () => {
-          gsap.to(introRef.current, {
-            duration: 0.6,
-            opacity: 0,
-            onComplete: onComplete
-          });
-        }
+        onComplete: onComplete // Call onComplete directly when the timeline finishes
       });
 
       const mainCtr = introRef.current;
@@ -71,7 +65,12 @@ const IntroAnimation = ({ onComplete }: { onComplete: () => void }) => {
           scale: 1,
           transformOrigin: "center center"
         })
-        .addPause(1); 
+        // Add a fade-out at the end of the timeline
+        .to(mainCtr, {
+          duration: 0.6,
+          opacity: 0,
+          delay: 0.5 // A brief pause before fading out
+        });
 
     }, introRef);
 
