@@ -4,12 +4,14 @@ import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import TypingEffect from './typing-effect'
 
-const Hero = () => {
+const Hero = ({ animate }: { animate: boolean }) => {
   const heroRef = useRef<HTMLDivElement>(null)
   const titleRef = useRef<HTMLDivElement>(null)
   const fadeInsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    if (!animate) return;
+
     const ctx = gsap.context(() => {
         
       // Use a timeline for better sequencing
@@ -39,7 +41,7 @@ const Hero = () => {
     }, heroRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [animate]);
 
   return (
     <div ref={heroRef} className="px-4 py-8 relative">
