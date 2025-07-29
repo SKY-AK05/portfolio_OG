@@ -72,7 +72,7 @@ const Mission = () => {
 
   return (
     <div ref={sectionRef} className="relative min-h-screen flex items-center justify-center py-20 overflow-hidden bg-muted/50">
-      <div className="container mx-auto px-6 text-center relative z-10">
+      <div className="px-6 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Main Mission Statement */}
           <div className="bg-background border-2 border-foreground rounded-3xl p-12 shadow-2xl relative">

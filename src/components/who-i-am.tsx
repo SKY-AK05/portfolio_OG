@@ -76,7 +76,7 @@ const WhoIAm = () => {
   }, [timelineEvents.length])
 
   return (
-    <div ref={sectionRef} className="container mx-auto px-6 py-20">
+    <div ref={sectionRef} className="px-6 py-20">
       <div className="max-w-6xl mx-auto">
         {/* Main Content - Two Column Layout */}
         <div className="flex flex-col lg:flex-row gap-10 mb-16">

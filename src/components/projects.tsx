@@ -170,7 +170,7 @@ const Projects = () => {
 
 
   return (
-    <div ref={sectionRef} className="container mx-auto px-6 py-20">
+    <div ref={sectionRef} className="px-6 py-20">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
