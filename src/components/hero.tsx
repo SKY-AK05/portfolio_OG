@@ -46,7 +46,7 @@ const Hero = () => {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
         
         {/* Left Column */}
-        <div className="md:col-span-4 space-y-8">
+        <div className="md:col-span-4 space-y-8 ml-8">
           <h1 ref={titleRef} className="font-heading text-6xl md:text-7xl font-bold leading-tight">
             <span className="block text-primary">Hey</span>
             <span className="block">There,</span>
