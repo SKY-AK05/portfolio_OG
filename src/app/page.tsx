@@ -7,7 +7,6 @@ import { Draggable } from "gsap/Draggable"
 import { Flip } from "gsap/Flip"
 import Hero from "@/components/hero"
 import Footer from "@/components/footer"
-import AccessibilityControls from "@/components/accessibility-controls"
 import Header from "@/components/header"
 import WhoIAm from "@/components/who-i-am"
 import Projects from "@/components/projects"
@@ -16,6 +15,7 @@ import WhoIHelp from "@/components/who-i-help"
 import HowIThink from "@/components/how-i-think"
 import ChatWidget from "@/components/chat-widget"
 import IntroAnimation from "@/components/intro-animation"
+import ThemeSwitcher from "@/components/theme-switcher"
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, Draggable, Flip)
@@ -40,7 +40,7 @@ export default function Home() {
         className="min-h-screen bg-background flex flex-col"
         style={{ opacity: showIntro ? 0 : 1 }} // Start with opacity 0 if intro is showing
       >
-        <AccessibilityControls />
+        <ThemeSwitcher />
         <Header />
 
         <main className="flex-grow">
