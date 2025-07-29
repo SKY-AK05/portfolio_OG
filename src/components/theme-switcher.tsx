@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from 'react'
-import { useTheme } from "@/components/theme-provider"
+import { useTheme } from "next-themes"
 import { gsap } from 'gsap'
 import { Draggable } from 'gsap/Draggable'
 import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin'
@@ -17,7 +17,7 @@ const ThemeSwitcher = () => {
 
   useEffect(() => {
     // Ensure this runs only on the client
-    if (isMounted.current) return;
+    if (typeof window === 'undefined' || isMounted.current) return;
     isMounted.current = true;
 
     let startX: number
@@ -27,7 +27,7 @@ const ThemeSwitcher = () => {
       ON: theme === 'dark',
     }
     
-    document.documentElement.setAttribute('data-theme', STATE.ON ? 'dark' : 'light');
+    document.documentElement.classList.toggle('dark', STATE.ON);
     
     const CORD_DURATION = 0.1
 
@@ -55,7 +55,7 @@ const ThemeSwitcher = () => {
       onStart: () => {
         STATE.ON = !STATE.ON
         setTheme(STATE.ON ? 'dark' : 'light')
-        document.documentElement.setAttribute('data-theme', STATE.ON ? 'dark' : 'light');
+        document.documentElement.classList.toggle('dark', STATE.ON);
         gsap.set([DUMMY_CORD, HIT], { display: 'none' })
         gsap.set(CORDS[0], { display: 'block' })
       },
@@ -113,7 +113,7 @@ const ThemeSwitcher = () => {
   }, [theme, setTheme])
 
   return (
-    <div className="fixed top-0 right-0 z-50">
+    <div className="absolute top-0 right-0 z-50">
       <svg className="toggle-scene" xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin' viewBox='0 0 197.451 481.081'>
         <defs>
           <marker id='a' orient='auto' overflow='visible' refX='0' refY='0'>

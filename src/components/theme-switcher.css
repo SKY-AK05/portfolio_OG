@@ -1,11 +1,11 @@
 :root {
   --on: 0;
-  --bg: hsl(calc(200 - (var(--on) * 160)), calc((20 + (var(--on) * 50)) * 1%), calc((20 + (var(--on) * 60)) * 1%));
-  --cord: hsl(0, 0%, calc((60 - (var(--on) * 50)) * 1%));
-  --stroke: hsl(0, 0%, calc((60 - (var(--on) * 50)) * 1%));
+  --bg: transparent;
+  --cord: hsl(var(--foreground) / 0.8);
+  --stroke: hsl(var(--foreground) / 0.8);
   --shine: hsla(0, 0%, 100%, calc(0.75 - (var(--on) * 0.5)));
-  --cap: hsl(0, 0%, calc((40 + (var(--on) * 30)) * 1%));
-  --filament: hsl(45, calc(var(--on) * 80%), calc((25 + (var(--on) * 75)) * 1%));
+  --cap: hsl(var(--foreground) / 0.5);
+  --filament: hsl(var(--primary));
 }
 
 .toggle-scene {
@@ -15,11 +15,15 @@
   position: absolute;
   top: 0px;
   right: 20px;
+  z-index: 50;
 }
 
 .toggle-scene__cord {
   stroke: var(--cord);
-  cursor: move;
+  cursor: grab;
+}
+.toggle-scene__cord:active {
+  cursor: grabbing;
 }
 .toggle-scene__cord:nth-of-type(1) {
   display: none;
@@ -39,17 +43,21 @@
 
 .bulb__filament {
   stroke: var(--filament);
+  filter: drop-shadow(0 0 10px hsl(var(--primary))) drop-shadow(0 0 20px hsl(var(--primary)));
+  opacity: var(--on);
+  transition: opacity 0.2s ease-in-out;
 }
 .bulb__shine {
   stroke: var(--shine);
 }
 .bulb__flash {
-  stroke: hsl(45, 80%, 80%);
+  stroke: hsl(var(--primary));
   display: none;
 }
 .bulb__bulb {
   stroke: var(--stroke);
-  fill: hsla(calc(180 - (95 * var(--on))), 80%, 80%, calc(0.1 + (0.4 * var(--on))));
+  fill: hsla(var(--primary), calc(0.1 + (0.4 * var(--on))));
+  transition: fill 0.2s ease-in-out;
 }
 .bulb__cap {
   fill: var(--cap);
@@ -61,6 +69,6 @@
   stroke: var(--stroke);
 }
 
-html[data-theme='dark'] {
+html.dark {
   --on: 1;
 }
