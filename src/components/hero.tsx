@@ -6,48 +6,36 @@ import TypingEffect from './typing-effect'
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null)
-  const heyRef = useRef<HTMLSpanElement>(null)
-  const restOfTitleRef = useRef<HTMLSpanElement>(null)
+  const titleRef = useRef<HTMLDivElement>(null)
   const fadeInsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const animateRestOfContent = () => {
-        // Ensure the "Hey" is visible and in place for the animation to target
-        gsap.set(heyRef.current, { opacity: 1 });
         
-        // Use a timeline for better sequencing
-        const tl = gsap.timeline();
+      // Use a timeline for better sequencing
+      const tl = gsap.timeline({delay: 0.5});
 
-        // Animate the rest of the title
-        tl.fromTo(restOfTitleRef.current,
-          { opacity: 0, x: -20 },
-          { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" }
+      // Animate the title
+      tl.fromTo(titleRef.current,
+        { opacity: 0, x: -20 },
+        { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" }
+      );
+
+      // Animate the fade-in elements
+      const fadeElements = fadeInsRef.current?.querySelectorAll('[data-fade-in]');
+      if (fadeElements) {
+        tl.fromTo(fadeElements,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.2, // Stagger fade-ins
+            ease: "power2.out"
+          },
+          "-=0.2" // Start this animation slightly before the previous one ends
         );
-
-        // Animate the fade-in elements
-        const fadeElements = fadeInsRef.current?.querySelectorAll('[data-fade-in]');
-        if (fadeElements) {
-          tl.fromTo(fadeElements,
-            { opacity: 0, y: 20 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.6,
-              stagger: 0.2, // Stagger fade-ins
-              ease: "power2.out"
-            },
-            "-=0.2" // Start this animation slightly before the previous one ends
-          );
-        }
-      };
-
-      // Listen for the custom event dispatched by the intro animation
-      document.addEventListener('introLanded', animateRestOfContent);
-
-      return () => {
-        document.removeEventListener('introLanded', animateRestOfContent);
-      };
+      }
     }, heroRef);
 
     return () => ctx.revert();
@@ -59,22 +47,19 @@ const Hero = () => {
         
         {/* Left Column */}
         <div className="md:col-span-4 space-y-8">
-          <h1 className="font-heading text-6xl md:text-7xl font-bold leading-tight">
-            {/* This "Hey" is the target for the intro animation */}
-            <span ref={heyRef} data-hey-target className="text-primary inline-block opacity-0">Hey</span>
-            
-            {/* The rest of the title will be animated in */}
-            <span ref={restOfTitleRef} className="inline-block opacity-0">
+          <h1 ref={titleRef} className="font-heading text-6xl md:text-7xl font-bold leading-tight">
+            <span className="text-primary inline-block">Hey</span>
+            <span className="inline-block">
               <span> There,</span>
               <br />
               <span>I'm Aakash</span>
             </span>
           </h1>
           <div ref={fadeInsRef}>
-            <a href="mailto:aakash@example.com" className="text-primary font-body font-semibold hover:underline opacity-0" data-fade-in>
+            <a href="mailto:aakash@example.com" className="text-primary font-body font-semibold hover:underline" data-fade-in>
               aakash@example.com
             </a>
-            <div className="opacity-0" data-fade-in>
+            <div data-fade-in>
               <p className="text-4xl font-heading font-bold">10</p>
               <p className="font-body text-sm text-muted-foreground">YEARS EXPERIENCE</p>
             </div>
